@@ -1,21 +1,25 @@
-/* ========================================================= 
+/* =========================================================
    LUMI STUDIO — Calm, handcrafted, quietly powerful
    ========================================================= */
 
 :root{
+  /* Brand */
   --bg:#F4F1EB;
   --text:#5E676E;
   --muted: rgba(94,103,110,0.74);
   --gold:#CBB27A;
   --night:#2F3A40;
 
+  /* UI */
   --surface: rgba(94,103,110,0.06);
   --border: rgba(94,103,110,0.14);
   --shadow: 0 18px 60px rgba(47,58,64,0.14);
 
+  /* Layout */
   --radius:22px;
   --max:1100px;
 
+  /* Type */
   --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
   --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 }
@@ -24,8 +28,10 @@
    Base
    ========================================================= */
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+
+img{ max-width:100%; height:auto; display:block; }
 
 body{
   background:var(--bg);
@@ -36,8 +42,8 @@ body{
   text-rendering:optimizeLegibility;
 }
 
-a{color:inherit;text-decoration:none}
-a:hover{text-decoration:underline}
+a{ color:inherit; text-decoration:none; }
+a:hover{ text-decoration:underline; }
 
 .container{
   max-width:var(--max);
@@ -63,12 +69,14 @@ header.site-header{
   align-items:center;
   justify-content:space-between;
   padding:14px 0;
+  gap:16px;
 }
 
 .brand{
   display:flex;
   align-items:center;
   gap:10px;
+  min-width:fit-content;
 }
 
 .brand-mark{
@@ -90,6 +98,8 @@ nav ul{
   gap:18px;
   padding:0;
   margin:0;
+  flex-wrap:wrap;
+  justify-content:flex-end;
 }
 
 nav a{
@@ -130,6 +140,7 @@ nav a.active{
     rgba(0,0,0,.25) 35%,
     rgba(0,0,0,0) 70%
   );
+  pointer-events:none;
 }
 
 .hero-overlay{
@@ -190,50 +201,66 @@ nav a.active{
   font-size:clamp(1.6rem,3vw,2.4rem);
 }
 
+/* Safer grid: prevents “one item becomes huge” and adapts cleanly */
 .character-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
   gap:18px;
   max-width:1100px;
   margin:0 auto;
+  align-items:stretch;
 }
 
 .character-card{
-  display:block;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
   padding:18px;
   border-radius:16px;
   background:rgba(255,255,255,0.06);
-  text-decoration:none;
   color:#fff;
   border:1px solid rgba(255,255,255,0.10);
-  transition:all .2s ease;
+  transition:transform .2s ease, border-color .2s ease, background-color .2s ease;
+  text-decoration:none;
+  min-height:120px;
 }
 
 .character-card:hover{
   transform:translateY(-3px);
+  border-color: rgba(255,255,255,0.18);
 }
 
-/* Character Face Icon */
-
+/* Character Face Icon (supports <img> or a div “icon chip”) */
 .character-face{
   width:56px;
   height:56px;
   border-radius:50%;
   border:3px solid rgba(255,216,77,0.95);
   object-fit:cover;
-  margin:0 auto 12px auto;
+  object-position:center;
   display:block;
 }
 
+/* Optional: if you use a DIV instead of IMG:
+   <span class="character-face chip" style="--face:url('/path.png')"></span>
+*/
+.character-face.chip{
+  background-image:var(--face);
+  background-size:cover;
+  background-position:center;
+}
+
 .character-card h3{
-  margin:0 0 6px 0;
+  margin:0;
   font-size:1.1rem;
+  text-align:left;
 }
 
 .character-card p{
   margin:0;
   opacity:.88;
   line-height:1.35;
+  text-align:left;
 }
 
 /* =========================================================
@@ -267,17 +294,7 @@ footer a{
    Responsive
    ========================================================= */
 
-@media (max-width:900px){
-  .character-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
 @media (max-width:560px){
-  .character-grid{
-    grid-template-columns:1fr;
-  }
-
   .hero{
     height:62vh;
     min-height:420px;
