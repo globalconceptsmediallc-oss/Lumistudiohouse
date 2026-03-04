@@ -443,3 +443,18 @@ nav a{
 nav ul{
   gap: 26px !important;
 }
+/* ===== HEADER TYPOGRAPHY SCALE ===== */
+
+.brand-name{
+  font-size: 20px !important;
+  letter-spacing: .22em;
+}
+
+nav a{
+  font-size: 18px !important;
+  font-weight: 500;
+}
+
+.navbar{
+  padding: 40px 0 !important;
+}
