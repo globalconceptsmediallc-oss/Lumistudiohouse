@@ -10,64 +10,106 @@
   <title>Lumi Studio</title>
 </head>
 
-<body>
+<!-- ✅ turns on homepage-only hero + dark band styles -->
+<body class="home">
 
-  <!-- HERO (Image Banner) -->
-  <header class="hero">
-    <div class="hero-overlay">
-      <h1>Meet Lumi and Friends</h1>
-      <a class="hero-btn" href="/lumi-and-friends.html">Meet the Characters</a>
+  <!-- ✅ Restores logo + nav system above hero -->
+  <header class="site-header">
+    <div class="container">
+      <div class="navbar">
+        <a class="brand" href="/index.html" aria-label="Lumi Studio Home">
+          <span class="brand-mark" aria-hidden="true" style="color: var(--text)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+              <path d="M24 12c0-4 4-8 8-8s8 4 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M20 24h24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M22 24l3 30h14l3-30" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M26 18h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M28 30h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+              <path d="M30 34h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
+            </svg>
+          </span>
+          <span class="brand-name">LUMI STUDIO</span>
+        </a>
+        <nav data-nav aria-label="Primary navigation"></nav>
+      </div>
     </div>
-
-    <img
-      class="hero-img"
-      src="/images/lumi-hero-banner-clean.png"
-      alt="Lumi and friends looking into a glowing cave"
-    />
   </header>
 
-  <!-- Characters Preview -->
-  <section class="characters-preview" id="characters">
-    <h2>Meet the Characters</h2>
+  <main>
 
-    <div class="character-grid">
-      <a class="character-card" href="/lumi-and-friends.html#lumi">
-        <span class="character-dot" aria-hidden="true"></span>
-        <h3>Lumi</h3>
-        <p>The little light who refuses to go out.</p>
-      </a>
+    <!-- Hero (Image Banner) -->
+    <header class="hero">
+      <div class="hero-overlay">
+        <h1>Meet Lumi and Friends</h1>
+        <a class="hero-btn" href="/lumi-and-friends.html">Meet the Characters</a>
+      </div>
 
-      <a class="character-card" href="/lumi-and-friends.html#rowan">
-        <span class="character-dot" aria-hidden="true"></span>
-        <h3>Rowan</h3>
-        <p>Brave heart, steady paws.</p>
-      </a>
+      <img
+        class="hero-img"
+        src="/images/lumi-hero-banner-clean.png"
+        alt="Lumi and friends looking into a glowing cave"
+      />
+    </header>
 
-      <a class="character-card" href="/lumi-and-friends.html#fern">
-        <span class="character-dot" aria-hidden="true"></span>
-        <h3>Fern</h3>
-        <p>Gentle, curious, always listening.</p>
-      </a>
+    <!-- Characters Preview -->
+    <section class="characters-preview" id="characters">
+      <h2>Meet the Characters</h2>
 
-      <a class="character-card" href="/lumi-and-friends.html#pebble">
-        <span class="character-dot" aria-hidden="true"></span>
-        <h3>Pebble</h3>
-        <p>Small, clever, and full of surprises.</p>
-      </a>
+      <div class="character-grid">
+        <a class="character-card" href="/lumi-and-friends.html#lumi">
+          <span class="character-dot" aria-hidden="true"></span>
+          <h3>Lumi</h3>
+          <p>The little light who refuses to go out.</p>
+        </a>
 
-      <a class="character-card" href="/lumi-and-friends.html#wren">
-        <span class="character-dot" aria-hidden="true"></span>
-        <h3>Wren</h3>
-        <p>Quick ideas and fearless leaps.</p>
-      </a>
+        <a class="character-card" href="/lumi-and-friends.html#rowan">
+          <span class="character-dot" aria-hidden="true"></span>
+          <h3>Rowan</h3>
+          <p>Brave heart, steady paws.</p>
+        </a>
 
-      <a class="character-card" href="/lumi-and-friends.html#alder">
-        <span class="character-dot" aria-hidden="true"></span>
-        <h3>Alder</h3>
-        <p>Wise guide in the quiet forest.</p>
-      </a>
+        <a class="character-card" href="/lumi-and-friends.html#fern">
+          <span class="character-dot" aria-hidden="true"></span>
+          <h3>Fern</h3>
+          <p>Gentle, curious, always listening.</p>
+        </a>
+
+        <a class="character-card" href="/lumi-and-friends.html#pebble">
+          <span class="character-dot" aria-hidden="true"></span>
+          <h3>Pebble</h3>
+          <p>Small, clever, and full of surprises.</p>
+        </a>
+
+        <a class="character-card" href="/lumi-and-friends.html#wren">
+          <span class="character-dot" aria-hidden="true"></span>
+          <h3>Wren</h3>
+          <p>Quick ideas and fearless leaps.</p>
+        </a>
+
+        <a class="character-card" href="/lumi-and-friends.html#alder">
+          <span class="character-dot" aria-hidden="true"></span>
+          <h3>Alder</h3>
+          <p>Wise guide in the quiet forest.</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div style="font-family: var(--serif); letter-spacing:.18em; text-transform:uppercase;">LUMI STUDIO</div>
+          <div class="footer-mini">Stories that help us find the light.</div>
+        </div>
+        <div class="footer-mini">
+          <div><a href="/privacy.html">Privacy</a></div>
+          <div style="margin-top:6px;">© 2026 Lumi Studio</div>
+        </div>
+      </div>
     </div>
-  </section>
+  </footer>
 
 </body>
 </html>
