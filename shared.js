@@ -1,6 +1,6 @@
-/* Lumi Studio — shared nav + cache-busting */
+/* Lumi Studio — shared nav + safe cache-busting */
 (() => {
-  const VERSION = "20260303";
+  const VERSION = "20260304";
 
   const navItems = [
     { href: "/index.html", label: "Home" },
@@ -18,14 +18,23 @@
     return url + join + "v=" + VERSION;
   }
 
+  function normalizePath(p) {
+    if (!p) return "/index.html";
+    if (p.endsWith("/")) return "/index.html";
+    return p;
+  }
+
   function injectNav() {
     const nav = document.querySelector("[data-nav]");
     if (!nav) return;
 
-    const ul = document.createElement("ul");
-    const path = location.pathname.endsWith("/") ? "/index.html" : location.pathname;
+    // Prevent duplicates if script runs twice
+    nav.innerHTML = "";
 
-    navItems.forEach(item => {
+    const ul = document.createElement("ul");
+    const path = normalizePath(location.pathname);
+
+    navItems.forEach((item) => {
       const li = document.createElement("li");
       const a = document.createElement("a");
       a.href = item.href;
@@ -34,6 +43,7 @@
       if (path === item.href || (path === "/" && item.href === "/index.html")) {
         a.classList.add("active");
       }
+
       li.appendChild(a);
       ul.appendChild(li);
     });
@@ -42,11 +52,22 @@
   }
 
   function bustAssets() {
-    document.querySelectorAll('link[rel="stylesheet"]').forEach(l => {
-      l.href = withV(l.getAttribute("href"));
+    // Bust stylesheets (safe)
+    document.querySelectorAll('link[rel="stylesheet"]').forEach((l) => {
+      const href = l.getAttribute("href");
+      if (!href) return;
+      l.href = withV(href);
     });
-    document.querySelectorAll('script[src]').forEach(s => {
-      s.src = withV(s.getAttribute("src"));
+
+    // Bust other scripts, but DO NOT touch shared.js (the script currently running)
+    document.querySelectorAll("script[src]").forEach((s) => {
+      const src = s.getAttribute("src");
+      if (!src) return;
+
+      // Skip this file to avoid reload loops / timing issues
+      if (src.includes("/shared.js")) return;
+
+      s.src = withV(src);
     });
   }
 
