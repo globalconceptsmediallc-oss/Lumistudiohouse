@@ -1,6 +1,7 @@
 /* =========================================================
-   LUMI STUDIO — Calm, handcrafted, quietly powerful
-   Screenshot version: Image Hero + Characters Preview
+   LUMI STUDIO — Master Styles (All Pages)
+   - Restores: Studio / Stories / Journal / Lumi & Friends layouts
+   - Adds: Homepage-only Image Hero + Dark Characters band (scoped)
    ========================================================= */
 
 :root{
@@ -8,11 +9,11 @@
   --text:#5E676E;
   --muted: rgba(94,103,110,0.74);
   --gold:#CBB27A;
-  --night:#0b1220;
+  --night:#2F3A40;
 
-  --surface: rgba(255,255,255,0.06);
-  --border: rgba(255,255,255,0.12);
-  --shadow: 0 18px 60px rgba(0,0,0,0.25);
+  --surface: rgba(94,103,110,0.06);
+  --border: rgba(94,103,110,0.14);
+  --shadow: 0 18px 60px rgba(47,58,64,0.14);
 
   --radius:22px;
   --max:1100px;
@@ -27,7 +28,7 @@ html,body{ margin:0; padding:0; }
 img{ max-width:100%; height:auto; display:block; }
 
 body{
-  background:#000; /* behind hero edge */
+  background:var(--bg);
   color:var(--text);
   font-family:var(--sans);
   line-height:1.55;
@@ -36,12 +37,214 @@ body{
 }
 
 a{ color:inherit; text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+.container{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 20px;
+}
 
 /* =========================================================
-   Hero Banner (Image)
+   Header / Navigation (used across inner pages)
    ========================================================= */
 
-.hero{
+header.site-header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(244,241,235,0.84);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+
+.navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
+  gap:16px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:fit-content;
+}
+
+.brand-mark{ width:28px; height:28px; }
+.brand-name{
+  font-family:var(--serif);
+  letter-spacing:.18em;
+  font-weight:600;
+  font-size:14px;
+  text-transform:uppercase;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:18px;
+  padding:0;
+  margin:0;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+nav a{ font-size:14px; color:rgba(94,103,110,0.92); }
+nav a.active{ text-decoration:underline; }
+
+/* =========================================================
+   Type + Buttons (used across inner pages)
+   ========================================================= */
+
+.h1{
+  margin:0;
+  font-family:var(--serif);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:clamp(1.8rem,3.2vw,2.6rem);
+}
+
+.h2{
+  font-family:var(--serif);
+  letter-spacing:.06em;
+  margin:0 0 10px 0;
+  font-size:20px;
+}
+
+.lead{
+  margin:0;
+  color:rgba(94,103,110,0.92);
+  line-height:1.55;
+}
+
+.tagline{ margin:10px 0 0 0; opacity:.92; }
+.subline{
+  margin:10px auto 0 auto;
+  opacity:.86;
+  max-width:700px;
+}
+
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.55);
+  color:var(--text);
+  font-weight:500;
+  text-decoration:none;
+}
+
+.btn:hover{ text-decoration:none; filter:brightness(0.98); }
+
+.btn.primary{
+  background:#ffd84d;
+  border-color:#ffd84d;
+  color:#000;
+  font-weight:700;
+}
+
+.cta-row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:16px;
+}
+
+/* =========================================================
+   Sections / Cards / Grid (used across inner pages)
+   ========================================================= */
+
+.section{ padding:60px 0; }
+
+.card{
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.42);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px;
+}
+
+.grid.two{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:18px;
+}
+
+@media (max-width:900px){
+  .grid.two{ grid-template-columns:1fr; }
+}
+
+/* Episodes + Quotes (used on stories/journal/index) */
+.episodes{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:12px;
+}
+
+.episode{
+  display:block;
+  padding:12px 14px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:rgba(255,255,255,.45);
+}
+
+.episode small{
+  display:block;
+  opacity:.7;
+  margin-bottom:4px;
+}
+
+.quotes{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:12px;
+}
+
+.quote{
+  padding:14px 16px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:rgba(255,255,255,.42);
+}
+
+/* =========================================================
+   Footer (used across all pages)
+   ========================================================= */
+
+footer{
+  padding:34px 0;
+  background:var(--night);
+  color:rgba(244,241,235,0.9);
+}
+
+footer a{ color:rgba(244,241,235,0.92); }
+
+.footer-inner{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.footer-mini{
+  color:rgba(244,241,235,0.72);
+  font-size:13px;
+}
+
+/* =========================================================
+   HOMEPAGE ONLY (scoped)
+   To activate: add class="home" on <body> in index.html
+   ========================================================= */
+
+/* Image Hero banner (home) */
+body.home .hero{
   position:relative;
   width:100%;
   height:72vh;
@@ -50,14 +253,14 @@ a{ color:inherit; text-decoration:none; }
   background:#000;
 }
 
-.hero-img{
+body.home .hero-img{
   width:100%;
   height:100%;
   object-fit:cover;
   display:block;
 }
 
-.hero::before{
+body.home .hero::before{
   content:"";
   position:absolute;
   inset:0;
@@ -70,7 +273,7 @@ a{ color:inherit; text-decoration:none; }
   pointer-events:none;
 }
 
-.hero-overlay{
+body.home .hero-overlay{
   position:absolute;
   top:10%;
   left:50%;
@@ -81,7 +284,7 @@ a{ color:inherit; text-decoration:none; }
   z-index:2;
 }
 
-.hero-overlay h1{
+body.home .hero-overlay h1{
   margin:0 0 14px 0;
   font-family:var(--serif);
   font-weight:600;
@@ -89,7 +292,7 @@ a{ color:inherit; text-decoration:none; }
   text-shadow: 0 10px 40px rgba(0,0,0,.45);
 }
 
-.hero-btn{
+body.home .hero-btn{
   display:inline-block;
   padding:12px 22px;
   border-radius:999px;
@@ -99,25 +302,21 @@ a{ color:inherit; text-decoration:none; }
   box-shadow: 0 18px 40px rgba(0,0,0,.28);
 }
 
-/* =========================================================
-   Characters Preview (Dark band)
-   ========================================================= */
-
-.characters-preview{
+/* Dark Characters band (home) */
+body.home .characters-preview{
   padding:78px 22px 88px;
-  background:var(--night);
+  background:#0b1220;
   color:#fff;
   text-align:center;
 }
 
-.characters-preview h2{
+body.home .characters-preview h2{
   margin:0 0 30px 0;
   font-size:clamp(1.6rem,3vw,2.4rem);
   font-weight:700;
 }
 
-/* Grid: exactly the “card row” feel from screenshot */
-.character-grid{
+body.home .character-grid{
   display:grid;
   grid-template-columns:repeat(4, minmax(0, 1fr));
   gap:18px;
@@ -126,8 +325,7 @@ a{ color:inherit; text-decoration:none; }
   align-items:stretch;
 }
 
-/* Cards */
-.character-card{
+body.home .character-card{
   display:flex;
   flex-direction:column;
   gap:10px;
@@ -142,14 +340,13 @@ a{ color:inherit; text-decoration:none; }
   min-height:104px;
 }
 
-.character-card:hover{
+body.home .character-card:hover{
   transform:translateY(-3px);
   border-color: rgba(255,255,255,0.18);
   background:rgba(255,255,255,0.075);
 }
 
-/* Dot icon (top-left like screenshot) */
-.character-dot{
+body.home .character-dot{
   width:10px;
   height:10px;
   border-radius:999px;
@@ -157,29 +354,37 @@ a{ color:inherit; text-decoration:none; }
   box-shadow: 0 0 0 3px rgba(255,216,77,0.14);
 }
 
-.character-card h3{
+body.home .character-face{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  border:3px solid rgba(255,216,77,0.95);
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+
+body.home .character-card h3{
   margin:2px 0 0 0;
   font-size:0.95rem;
   font-weight:700;
 }
 
-.character-card p{
+body.home .character-card p{
   margin:0;
   opacity:.86;
   line-height:1.35;
   font-size:0.92rem;
 }
 
-/* Responsive */
+/* Responsive for homepage grid */
 @media (max-width:1100px){
-  .character-grid{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
+  body.home .character-grid{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
 }
-
 @media (max-width:900px){
-  .character-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  body.home .character-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
 }
-
 @media (max-width:560px){
-  .hero{ height:62vh; min-height:420px; }
-  .character-grid{ grid-template-columns:1fr; }
+  body.home .hero{ height:62vh; min-height:420px; }
+  body.home .character-grid{ grid-template-columns:1fr; }
 }
