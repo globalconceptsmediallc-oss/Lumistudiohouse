@@ -416,3 +416,30 @@ body.home nav a{
 body.home .hero-overlay{
   z-index: 1 !important;
 }
+/* ===== GLOBAL HEADER SCALE FIX ===== */
+
+/* widen site container */
+.container{
+  max-width: 1280px;
+}
+
+/* larger header spacing */
+.navbar{
+  padding: 24px 0 !important;
+}
+
+/* larger brand title */
+.brand-name{
+  font-size: 18px !important;
+  letter-spacing: .20em;
+}
+
+/* larger navigation links */
+nav a{
+  font-size: 16px !important;
+}
+
+/* more breathing room between menu items */
+nav ul{
+  gap: 26px !important;
+}
