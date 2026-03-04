@@ -240,12 +240,14 @@ body { margin: 0; }
   transform: translateY(-2px);
 }
 
-.character-dot {
-  width: 44px;
-  height: 44px;
+.character-face {
+  width: 56px;
+  height: 56px;
   border-radius: 999px;
-  background: rgba(255,216,77,0.95);
-  margin-bottom: 12px;
+  border: 3px solid rgba(255,216,77,0.95);
+  object-fit: cover;
+  margin: 0 auto 12px auto;
+  display: block;
 }
 
 .character-card h3 {
