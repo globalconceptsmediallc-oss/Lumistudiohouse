@@ -396,3 +396,23 @@ body.home .character-card p{
   body.home .hero{ height:62vh; min-height:420px; }
   body.home .character-grid{ grid-template-columns:1fr; }
 }
+/* ===== HOTFIX: homepage nav size + keep it above hero ===== */
+body.home header.site-header{
+  z-index: 9999 !important;
+}
+
+body.home .navbar{
+  padding: 22px 0 !important;
+}
+
+body.home .brand-name{
+  font-size: 16px !important;
+}
+
+body.home nav a{
+  font-size: 15px !important;
+}
+
+body.home .hero-overlay{
+  z-index: 1 !important;
+}
