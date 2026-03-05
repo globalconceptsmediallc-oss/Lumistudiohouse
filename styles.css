@@ -323,3 +323,53 @@ body.home .character-dot{
 .character-grid{
   grid-template-columns: repeat(3, 1fr);
 }
+/* =========================================================
+   PATCH: Meet the Characters — uniform 3-col grid + uniform icons
+   Paste at VERY BOTTOM
+   ========================================================= */
+
+.character-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:18px;
+  align-items:stretch;
+}
+
+/* responsive */
+@media (max-width:980px){
+  .character-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width:620px){
+  .character-grid{ grid-template-columns:1fr; }
+}
+
+/* make every card the same structure */
+.character-card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:12px;
+  min-height:340px; /* keeps rows even */
+}
+
+/* uniform icon box */
+.character-icon{
+  width:180px;
+  height:180px;
+  border-radius:16px;
+  overflow:hidden;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* force all images to the same size + centered */
+.character-icon img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
