@@ -459,3 +459,19 @@ nav a{
 .navbar{
   padding: 40px 0 !important;
 }
+/* Character face icon replacing dot */
+
+.character-icon{
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid #ffd84d;
+  display:inline-block;
+}
+
+.character-icon img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
