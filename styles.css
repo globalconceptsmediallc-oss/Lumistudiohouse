@@ -320,3 +320,6 @@ body.home .character-dot{
   border-radius:999px;
   background:rgba(255,216,77,0.95);
 }
+.character-grid{
+  grid-template-columns: repeat(3, 1fr);
+}
