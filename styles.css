@@ -373,3 +373,7 @@ body.home .character-dot{
   object-position:center;
   display:block;
 }
+/* FORCE homepage Meet the Characters to 3 columns */
+body.home .character-grid{
+  grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+}
