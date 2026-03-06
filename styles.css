@@ -77,8 +77,7 @@ opacity: 0;
    display: inline-block;
 opacity: 0;
 animation: brandFade 0.2s ease forwards;
-   @keyframes brandFade {
-  to { opacity: 1; }
+   
 }
 
 
