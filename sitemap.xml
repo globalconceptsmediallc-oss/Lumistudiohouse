@@ -1,19 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url><loc>https://lumistudiohouse.com/</loc></url>
-  <url><loc>https://lumistudiohouse.com/studio.html</loc></url>
-  <url><loc>https://lumistudiohouse.com/lumi-and-friends.html</loc></url>
-  <url><loc>https://lumistudiohouse.com/stories.html</loc></url>
-  <url><loc>https://lumistudiohouse.com/journal.html</loc></url>
-  <url><loc>https://lumistudiohouse.com/contact.html</loc></url>
-  <url><loc>https://lumistudiohouse.com/privacy.html</loc></url>
+  <url>
+    <loc>https://lumistudiohouse.com/</loc>
+  </url>
 
-  <url><loc>https://lumistudiohouse.com/characters/lumi.html</loc></url>
-  <url><loc>https://lumistudiohouse.com/characters/rowan.html</loc></url>
-  <url><loc>https://lumistudiohouse.com/characters/fern.html</loc></url>
-  <url><loc>https://lumistudiohouse.com/characters/pebble.html</loc></url>
-  <url><loc>https://lumistudiohouse.com/characters/wren.html</loc></url>
-  <url><loc>https://lumistudiohouse.com/characters/alder.html</loc></url>
+  <url>
+    <loc>https://lumistudiohouse.com/lumi-and-friends</loc>
+  </url>
+
+  <url>
+    <loc>https://lumistudiohouse.com/characters/lumi</loc>
+  </url>
+
+  <url>
+    <loc>https://lumistudiohouse.com/characters/rowan</loc>
+  </url>
+
+  <url>
+    <loc>https://lumistudiohouse.com/characters/fern</loc>
+  </url>
+
+  <url>
+    <loc>https://lumistudiohouse.com/characters/pebble</loc>
+  </url>
+
+  <url>
+    <loc>https://lumistudiohouse.com/characters/wren</loc>
+  </url>
+
+  <url>
+    <loc>https://lumistudiohouse.com/characters/alder</loc>
+  </url>
+
+  <url>
+    <loc>https://lumistudiohouse.com/privacy</loc>
+  </url>
 
 </urlset>
