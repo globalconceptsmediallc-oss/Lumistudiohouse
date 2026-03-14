@@ -1,14 +1,22 @@
-/* Lumi Studio — shared nav + safe cache-busting */
+/* Lumi Studio — shared nav + footer + safe cache-busting */
 (() => {
-  const VERSION = "20260304";
+  const VERSION = "20260314";
 
   const navItems = [
     { href: "/index.html", label: "Home" },
-    { href: "/studio.html", label: "Studio" },
     { href: "/lumi-and-friends.html", label: "Lumi & Friends" },
+    { href: "/characters.html", label: "Characters" },
     { href: "/stories.html", label: "Stories" },
     { href: "/journal.html", label: "Journal" },
+    { href: "/studio.html", label: "Studio" },
     { href: "/contact.html", label: "Contact" }
+  ];
+
+  const footerItems = [
+    { href: "/parents.html", label: "Parents & Educators" },
+    { href: "/coloring.html", label: "Coloring Pages" },
+    { href: "/shop.html", label: "Shop" },
+    { href: "/privacy.html", label: "Privacy" }
   ];
 
   function withV(url) {
@@ -19,16 +27,19 @@
   }
 
   function normalizePath(p) {
-    if (!p) return "/index.html";
-    if (p.endsWith("/")) return "/index.html";
+    if (!p || p === "/") return "/index.html";
+    if (p.endsWith("/")) return p + "index.html";
     return p;
+  }
+
+  function isCharactersSection(path) {
+    return path === "/characters.html" || path.startsWith("/characters/");
   }
 
   function injectNav() {
     const nav = document.querySelector("[data-nav]");
     if (!nav) return;
 
-    // Prevent duplicates if script runs twice
     nav.innerHTML = "";
 
     const ul = document.createElement("ul");
@@ -40,7 +51,10 @@
       a.href = item.href;
       a.textContent = item.label;
 
-      if (path === item.href || (path === "/" && item.href === "/index.html")) {
+      if (
+        path === item.href ||
+        (item.href === "/characters.html" && isCharactersSection(path))
+      ) {
         a.classList.add("active");
       }
 
@@ -51,21 +65,41 @@
     nav.appendChild(ul);
   }
 
+  function injectFooter() {
+    const footerNav = document.querySelector("[data-footer-nav]");
+    if (!footerNav) return;
+
+    footerNav.innerHTML = "";
+
+    const ul = document.createElement("ul");
+
+    footerItems.forEach((item) => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = item.href;
+      a.textContent = item.label;
+
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+
+    footerNav.appendChild(ul);
+  }
+
   function bustAssets() {
-    // Bust stylesheets (safe)
     document.querySelectorAll('link[rel="stylesheet"]').forEach((l) => {
       const href = l.getAttribute("href");
       if (!href) return;
       l.href = withV(href);
     });
 
-    // Bust other scripts, but DO NOT touch shared.js (the script currently running)
     document.querySelectorAll("script[src]").forEach((s) => {
       const src = s.getAttribute("src");
       if (!src) return;
 
-      // Skip this file to avoid reload loops / timing issues
-      if (src.includes("/shared.js")) return;
+      if (src.includes("/shared.js") || src === "shared.js" || src === "./shared.js" || src === "../shared.js") {
+        return;
+      }
 
       s.src = withV(src);
     });
@@ -73,6 +107,7 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     injectNav();
+    injectFooter();
     bustAssets();
   });
 })();
