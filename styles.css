@@ -593,3 +593,17 @@ footer a{
     height:160px;
   }
 }
+/* =========================================================
+   Character Links
+   ========================================================= */
+
+.episode small a{
+  font-weight:700;
+  text-decoration:underline;
+  color:var(--text);
+  transition:color .2s ease;
+}
+
+.episode small a:hover{
+  color:var(--gold);
+}
