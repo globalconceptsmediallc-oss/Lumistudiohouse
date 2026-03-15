@@ -13,7 +13,7 @@
   ];
 
   const footerItems = [
-    { href: "/parents.html", label: "Parents & Educators" },
+    { href: "/parents.html", label: "Educators" },
     { href: "/coloring.html", label: "Coloring Pages" },
     { href: "/shop.html", label: "Shop" },
     { href: "/privacy.html", label: "Privacy" }
@@ -97,7 +97,12 @@
       const src = s.getAttribute("src");
       if (!src) return;
 
-      if (src.includes("/shared.js") || src === "shared.js" || src === "./shared.js" || src === "../shared.js") {
+      if (
+        src.includes("/shared.js") ||
+        src === "shared.js" ||
+        src === "./shared.js" ||
+        src === "../shared.js"
+      ) {
         return;
       }
 
