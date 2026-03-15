@@ -398,3 +398,22 @@ body.home .character-grid{
 .resource-card a:hover{
   border-bottom:1px solid currentColor;
 }
+/* Resource preview badge */
+
+.resource-preview{
+  position:relative;
+}
+
+.resource-badge{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:#ffd84d;
+  color:#000;
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:.08em;
+  padding:6px 10px;
+  border-radius:999px;
+  box-shadow:0 6px 14px rgba(0,0,0,.15);
+}
