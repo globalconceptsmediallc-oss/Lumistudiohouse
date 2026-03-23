@@ -1,10 +1,11 @@
 /* Lumi Studio — shared nav + footer + safe cache-busting */
 (() => {
-  const VERSION = "20260314";
+  const VERSION = "20260322";
 
   const navItems = [
     { href: "/index.html", label: "Home" },
     { href: "/lumi-and-friends.html", label: "Lumi & Friends" },
+    { href: "/lanternwood.html", label: "Lanternwood" },
     { href: "/characters.html", label: "Characters" },
     { href: "/stories.html", label: "Stories" },
     { href: "/journal.html", label: "Journal" },
