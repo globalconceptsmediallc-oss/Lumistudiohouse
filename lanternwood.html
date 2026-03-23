@@ -5,17 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Lanternwood | Lumi Studio</title>
+  <meta name="description" content="Explore Lanternwood — the world of Lumi and Friends. Follow the glowing path through each story and discover courage, friendship, and the light within.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://lumistudiohouse.com/lanternwood.html">
 
-  <meta name="description" content="Explore Lanternwood — the world of Lumi and Friends. Follow the glowing path through each story and discover the light within.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lanternwood | Lumi Studio">
+  <meta property="og:description" content="Explore Lanternwood — the world of Lumi and Friends. Follow the glowing path through each story and discover courage, friendship, and the light within.">
+  <meta property="og:url" content="https://lumistudiohouse.com/lanternwood.html">
+  <meta property="og:image" content="https://lumistudiohouse.com/images/lanternwood-map-lumi-world.webp">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lanternwood | Lumi Studio">
+  <meta name="twitter:description" content="Explore Lanternwood — the world of Lumi and Friends. Follow the glowing path through each story and discover courage, friendship, and the light within.">
+  <meta name="twitter:image" content="https://lumistudiohouse.com/images/lanternwood-map-lumi-world.webp">
 
   <link rel="stylesheet" href="/styles.css">
-  <script defer src="/shared.js"></script>
+  <script defer src="/shared.js?v=20260322"></script>
 
   <style>
     .map-wrapper {
       position: relative;
       max-width: 1920px;
       margin: 0 auto;
+      overflow: hidden;
     }
 
     .map-overlay {
@@ -25,31 +38,68 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.4));
+      background: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.42));
       color: white;
       padding: 20px;
     }
 
+    .map-overlay-inner {
+      max-width: 760px;
+    }
+
     .map-overlay h1 {
-      font-size: 2.6rem;
-      margin-bottom: 12px;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      margin: 0 0 14px;
+      line-height: 1.1;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.28);
     }
 
     .map-overlay p {
       font-size: 1.1rem;
       max-width: 680px;
-      line-height: 1.6;
+      line-height: 1.7;
+      margin: 0 auto;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.24);
     }
 
-    .section {
+    .lanternwood-section {
       padding: 60px 20px;
       text-align: center;
     }
 
-    .section h2 {
+    .lanternwood-section h2 {
       font-size: 2rem;
-      margin-bottom: 20px;
+      margin: 0 0 18px;
       color: #13264a;
+    }
+
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      max-width: 1100px;
+      margin: 24px auto 0;
+    }
+
+    .journey-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+      text-align: left;
+    }
+
+    .journey-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      color: #13264a;
+    }
+
+    .journey-card p {
+      margin: 0;
+      color: #5e676e;
+      line-height: 1.65;
+      font-size: 0.98rem;
     }
 
     .scene-grid {
@@ -62,8 +112,9 @@
 
     .scene-grid img {
       width: 100%;
+      display: block;
       border-radius: 14px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.16);
     }
 
     .cta-block {
@@ -73,17 +124,76 @@
       text-align: center;
     }
 
-    .cta-block a {
+    .cta-block h2 {
+      margin: 0 0 14px;
+      font-size: 2rem;
+    }
+
+    .cta-block p {
+      margin: 0 auto 20px;
+      max-width: 700px;
+      line-height: 1.7;
+      color: #d9e4ff;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-primary,
+    .cta-secondary {
       display: inline-block;
-      margin-top: 18px;
       padding: 14px 24px;
       border-radius: 999px;
-      background: #f6c76b;
-      color: #0b1630;
-      font-weight: bold;
+      font-weight: 700;
       text-decoration: none;
     }
+
+    .cta-primary {
+      background: #f6c76b;
+      color: #0b1630;
+    }
+
+    .cta-secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.28);
+    }
+
+    @media (max-width: 700px) {
+      .map-overlay {
+        padding: 18px;
+      }
+
+      .map-overlay p {
+        font-size: 1rem;
+      }
+    }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://lumistudiohouse.com/#org",
+        "name": "Lumi Studio",
+        "url": "https://lumistudiohouse.com/"
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://lumistudiohouse.com/lanternwood.html#page",
+        "url": "https://lumistudiohouse.com/lanternwood.html",
+        "name": "Lanternwood",
+        "description": "The story world of Lumi and Friends."
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -91,80 +201,111 @@
 <header class="site-header">
   <div class="container">
     <div class="navbar">
-      <a class="brand" href="/index.html">LUMI STUDIO</a>
-      <nav data-nav></nav>
+      <a class="brand" href="/index.html" aria-label="Lumi Studio Home">LUMI STUDIO</a>
+      <nav data-nav aria-label="Primary navigation"></nav>
     </div>
   </div>
 </header>
 
 <main>
 
-<!-- MAP -->
-<section class="map-wrapper">
+  <section class="map-wrapper">
+    <img
+      src="/images/lanternwood-map-lumi-world.webp"
+      alt="Lanternwood story map showing Lumi's journey through glowing paths, forests, and story locations"
+      usemap="#lanternwood-map"
+      loading="eager"
+      fetchpriority="high"
+      width="1920"
+      style="width:100%;display:block;">
 
-  <img src="/images/lanternwood-map-lumi-world.webp"
-       alt="Lanternwood story map showing Lumi's journey through glowing paths, forest, and story locations"
-       usemap="#lanternwood-map"
-       loading="eager"
-       width="1920"
-       style="width:100%;display:block;">
+    <div class="map-overlay">
+      <div class="map-overlay-inner">
+        <h1>Welcome to Lanternwood</h1>
+        <p>
+          Follow the glowing path through the places that shape Lumi’s world. Each part of Lanternwood holds a story, and every story reveals a little more courage, friendship, and light.
+        </p>
+      </div>
+    </div>
 
-  <div class="map-overlay">
-    <div>
-      <h1>Welcome to Lanternwood</h1>
-      <p>
-        Follow the glowing path. Each place holds a story,
-        and every story carries a piece of the light within.
+    <map name="lanternwood-map">
+      <area shape="rect" coords="180,380,420,620" href="/stories.html#hollow-entrance" alt="Hollow Entrance">
+      <area shape="rect" coords="700,250,1000,520" href="/stories.html#whispering-falls" alt="Whispering Falls">
+      <area shape="rect" coords="650,650,950,900" href="/stories.html#glowing-stones" alt="Glowing Stones">
+      <area shape="rect" coords="1050,650,1400,950" href="/stories.html#hidden-path" alt="Hidden Path">
+      <area shape="rect" coords="1300,200,1650,500" href="/stories.html#ancient-oak" alt="Ancient Oak">
+      <area shape="rect" coords="1400,750,1750,1050" href="/stories.html#lantern-grove" alt="Lantern Grove">
+    </map>
+  </section>
+
+  <section class="lanternwood-section">
+    <div class="container" style="max-width:900px;">
+      <h2>The Journey Through Lanternwood</h2>
+      <p class="lead" style="max-width:720px;margin:0 auto;">
+        From first steps into the unknown to the warm glow of belonging, Lanternwood is the path Lumi and Friends walk together — a world shaped by wonder, reflection, and quiet strength.
       </p>
     </div>
-  </div>
 
-  <map name="lanternwood-map">
+    <div class="journey-grid">
+      <div class="journey-card">
+        <h3>Hollow Entrance</h3>
+        <p>Where the journey begins, and the first questions step quietly into view.</p>
+      </div>
 
-    <area shape="rect" coords="180,380,420,620" href="/stories.html#hollow-entrance" alt="Hollow Entrance">
-    <area shape="rect" coords="700,250,1000,520" href="/stories.html#whispering-falls" alt="Whispering Falls">
-    <area shape="rect" coords="650,650,950,900" href="/stories.html#glowing-stones" alt="Glowing Stones">
-    <area shape="rect" coords="1050,650,1400,950" href="/stories.html#hidden-path" alt="Hidden Path">
-    <area shape="rect" coords="1300,200,1650,500" href="/stories.html#ancient-oak" alt="Ancient Oak">
-    <area shape="rect" coords="1400,750,1750,1050" href="/stories.html#lantern-grove" alt="Lantern Grove">
+      <div class="journey-card">
+        <h3>Whispering Falls</h3>
+        <p>A place of listening, reflection, and truths heard most clearly in stillness.</p>
+      </div>
 
-  </map>
+      <div class="journey-card">
+        <h3>Glowing Stones</h3>
+        <p>A reminder that even the smallest light can help guide the way forward.</p>
+      </div>
 
-</section>
+      <div class="journey-card">
+        <h3>Hidden Path</h3>
+        <p>The way that reveals itself only when courage and trust begin to grow.</p>
+      </div>
 
-<!-- JOURNEY SECTION -->
-<section class="section">
-  <h2>The Journey Through Lanternwood</h2>
-  <p style="max-width:700px;margin:0 auto;">
-    From the Hollow Entrance to the Lantern Grove, each step along the path
-    reveals courage, friendship, and the quiet strength carried within.
-  </p>
-</section>
+      <div class="journey-card">
+        <h3>Ancient Oak</h3>
+        <p>A place of wisdom, patience, and perspective along the journey.</p>
+      </div>
 
-<!-- SCENE GALLERY (PLACEHOLDER FOR YOUR IMAGES) -->
-<section class="section" style="background:#f4f1eb;">
-  <h2>Scenes from the Journey</h2>
+      <div class="journey-card">
+        <h3>Lantern Grove</h3>
+        <p>The glowing heart of Lanternwood, where belonging and inner light come into view.</p>
+      </div>
+    </div>
+  </section>
 
-  <div class="scene-grid">
+  <section class="lanternwood-section" style="background:#f4f1eb;">
+    <div class="container" style="max-width:900px;">
+      <h2>Scenes from the Journey</h2>
+      <p class="lead" style="max-width:720px;margin:0 auto 24px;">
+        This world is still growing. As more scenes and story moments are added, Lanternwood will become a richer place to explore.
+      </p>
+    </div>
 
-    <!-- Replace these with your actual scene images -->
-    <img src="/images/scene-1.webp" alt="Lanternwood scene">
-    <img src="/images/scene-2.webp" alt="Lanternwood scene">
-    <img src="/images/scene-3.webp" alt="Lanternwood scene">
-    <img src="/images/scene-4.webp" alt="Lanternwood scene">
+    <div class="scene-grid">
+      <img src="/images/scene-1.webp" alt="Scene from Lanternwood" loading="lazy">
+      <img src="/images/scene-2.webp" alt="Scene from Lanternwood" loading="lazy">
+      <img src="/images/scene-3.webp" alt="Scene from Lanternwood" loading="lazy">
+      <img src="/images/scene-4.webp" alt="Scene from Lanternwood" loading="lazy">
+    </div>
+  </section>
 
-  </div>
-</section>
+  <section class="cta-block">
+    <h2>Follow the story path</h2>
+    <p>
+      Begin with the stories, explore the places that shape them, and discover how each step through Lanternwood reveals the light carried within.
+    </p>
 
-<!-- CTA -->
-<section class="cta-block">
-  <h2>Begin the Story</h2>
-  <p>
-    Start with the first step of the journey and discover where the light leads.
-  </p>
-
-  <a href="/stories.html">Read the Stories</a>
-</section>
+    <div class="cta-actions">
+      <a class="cta-primary" href="/stories.html">Read the Stories</a>
+      <a class="cta-secondary" href="/characters.html">Meet the Characters</a>
+    </div>
+  </section>
 
 </main>
 
@@ -172,10 +313,14 @@
   <div class="container">
     <div class="footer-inner">
       <div>
-        <div>LUMI STUDIO</div>
+        <div style="font-family: var(--serif); letter-spacing:.18em; text-transform:uppercase;">LUMI STUDIO</div>
         <div class="footer-mini">Stories that help us find the light.</div>
       </div>
-      <div class="footer-mini">© 2026 Lumi Studio</div>
+
+      <div class="footer-mini">
+        <nav data-footer-nav></nav>
+        <div style="margin-top:10px;">© 2026 Lumi Studio</div>
+      </div>
     </div>
   </div>
 </footer>
