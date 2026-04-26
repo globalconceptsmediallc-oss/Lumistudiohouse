@@ -3,22 +3,22 @@
   const VERSION = "20260322";
 
   const navItems = [
-    { href: "/index.html", label: "Home" },
-    { href: "/lumi-and-friends.html", label: "Lumi & Friends" },
-    { href: "/lanternwood.html", label: "Lanternwood" },
-    { href: "/characters.html", label: "Characters" },
-    { href: "/stories.html", label: "Stories" },
-    { href: "/journal.html", label: "Journal" },
-    { href: "/studio.html", label: "Studio" },
-    { href: "/contact.html", label: "Contact" }
-  ];
+  { href: "/", label: "Home" },
+  { href: "/lumi-and-friends", label: "Lumi & Friends" },
+  { href: "/lanternwood", label: "Lanternwood" },
+  { href: "/characters", label: "Characters" },
+  { href: "/stories", label: "Stories" },
+  { href: "/journal", label: "Journal" },
+  { href: "/studio", label: "Studio" },
+  { href: "/contact", label: "Contact" }
+];
 
-  const footerItems = [
-    { href: "/parents.html", label: "Educators" },
-    { href: "/coloring.html", label: "Coloring Pages" },
-    { href: "/shop.html", label: "Shop" },
-    { href: "/privacy.html", label: "Privacy" }
-  ];
+const footerItems = [
+  { href: "/parents", label: "Educators" },
+  { href: "/coloring", label: "Coloring Pages" },
+  { href: "/shop", label: "Shop" },
+  { href: "/privacy", label: "Privacy" }
+];
 
   function withV(url) {
     if (!url) return url;
